@@ -10,7 +10,7 @@ const Payment = () => {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState(paymentMethods[0] || "");
   return (
-    <section className="w-full lg:w-3/5 sm:w-max ">
+    <section className="w-full lg:w-3/5">
       <div className=" border-gray-200 border-2 rounded-md overflow-hidden">
         <div className="flex items-center px-4 border-b-2 py-2">
           <h1 className="text-base sm:text-2xl font-semibold ">
