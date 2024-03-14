@@ -43,7 +43,6 @@ const Home = () => {
           { cache: "no-store" }
         );
         setTheme(themeData.data.theme);
-        console.log(response.data);
         push("/checkout");
       } catch (error) {
         console.error("Axios error: ", error);

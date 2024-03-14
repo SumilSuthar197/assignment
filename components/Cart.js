@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 
 const Cart = () => {
-  const allState = useSelector((state) => state);
-  console.log(allState);
   const { products, totalPrice } = useSelector((state) => state);
   const { push } = useRouter();
   return (

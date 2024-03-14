@@ -1,11 +1,14 @@
 "use client";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import { setPaymentMethod } from "@/lib/slices/cartSlice";
 const Payment = () => {
   const { push } = useRouter();
   const { products, totalPrice } = useSelector((state) => state);
   const { paymentMethods } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [selected, setSelected] = useState(paymentMethods[0] || "");
   return (
     <section className="w-full lg:w-3/5 sm:w-max ">
       <div className=" border-gray-200 border-2 rounded-md overflow-hidden">
@@ -24,8 +27,9 @@ const Payment = () => {
                       <input
                         id={item}
                         type="radio"
-                        defaultChecked={idx == 1 ? true : false}
+                        defaultChecked={idx == 0 ? true : false}
                         name="payment"
+                        onChange={() => setSelected(item)}
                         className="sr-only peer"
                       />
                       <div className="w-full flex gap-x-3 items-start p-4 cursor-pointer rounded-lg border  shadow-sm ring-slate-400 peer-checked:ring-2 duration-200">
@@ -79,10 +83,11 @@ const Payment = () => {
             <div className="mt-6 text-center">
               <button
                 onClick={() => {
-                  if (products.length <= 0) {
-                    alert("Cart is Empty");
+                  if (selected === "") {
+                    alert("Payment method not selected");
                     return;
                   }
+                  dispatch(setPaymentMethod(selected));
                   push("/confirmation");
                 }}
                 type="button"

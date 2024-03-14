@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Assignment Overview
 
-## Getting Started
+This project revolves around crafting a seamless checkout process, focusing specifically on the final stages: the Checkout Page, Payment Options Page, and Order Confirmation Page. Let's delve into the details of each section:
 
-First, run the development server:
+### Checkout Page
+- Fetch order details and payment methods from [this API](https://groww-intern-assignment.vercel.app/v1/api/order-details).
+- Display order summary and a call-to-action button to proceed.
+- Handle empty product list scenarios.
+- Ensure responsiveness for multiple screen sizes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Payment Options Page
+- Design a page for users to choose their preferred payment method.
+- Render payment methods provided in the order-details API.
+- Implement validation and error handling for payment instruments.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Order Confirmation Page
+- Create a page to confirm the order.
+- Display order details, selected payment method, and transaction status (Success, Failure, Pending).
+- Ensure responsive design and dynamic UI.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Additional Feature
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+In addition to the core requirements, I've implemented an dynamic theming feature based on various brands. This feature allows for a unique visual experience tailored to different brand aesthetics. Themes are fetched dynamically using [this API](https://groww-intern-assignment.vercel.app/v1/api/merchant-metadata).
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- JavaScript
+- Redux
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Get Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To get started with the project locally, follow these steps:
 
-## Deploy on Vercel
+1. Clone the repository: `git clone https://github.com/SumilSuthar197/assignment.git`
+2. Navigate to the project directory
+3. Install dependencies: `npm install`
+4. Run the development server: `npm run dev`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application should now be running on [https://localhost:3000](http://localhost:3000/).
